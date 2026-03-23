@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNKNOWN SEAS — Series Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #0a0c10;
+  --ocean: #0d1b2a;
+  --midnight: #1b2838;
+  --slate: #2c3e50;
+  --steel: #7f8c8d;
+  --sand: #c4b69c;
+  --coral: #e07a5f;
+  --aqua: #3d8b8b;
+  --foam: #e8e0d4;
+  --white: #f5f0eb;
+  --gold: #c9a84c;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', Helvetica, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--deep);
+  color: var(--foam);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* ---- UTILITY ---- */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.section { padding: 120px 0; position: relative; }
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 20px;
+  display: block;
+}
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 30px;
+}
+h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--sand);
+  margin-bottom: 16px;
+}
+h4 {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 10px;
+}
+p { margin-bottom: 18px; color: var(--foam); opacity: 0.88; }
+.lead { font-size: 20px; line-height: 1.8; }
+.subtle { font-size: 14px; opacity: 0.6; }
+a { color: var(--coral); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---- DIVIDERS ---- */
+.divider {
+  width: 60px; height: 1px;
+  background: var(--coral);
+  margin: 40px 0;
+}
+.divider-wide {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--slate), transparent);
+  margin: 0;
+}
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 80%, #0d2137 0%, #0a0c10 70%);
+  overflow: hidden;
+  padding: 80px 40px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.1), transparent),
+    radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.12), transparent),
+    radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,0.08), transparent),
+    radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.1), transparent),
+    radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.1), transparent);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s forwards;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(52px, 8vw, 110px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -2px;
+  color: var(--white);
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s forwards;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--coral);
+}
+.hero-sub {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--sand);
+  max-width: 600px;
+  margin-bottom: 50px;
+  opacity: 0;
+  animation: fadeUp 1s 0.7s forwards;
+}
+.hero-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--steel);
+  opacity: 0;
+  animation: fadeUp 1s 0.9s forwards;
+}
+.coord-display {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--aqua);
+  letter-spacing: 2px;
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeUp 1s 1.1s forwards;
+}
+.coord-display span { color: var(--steel); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- CARDS / GRIDS ---- */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; }
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 2px;
+  padding: 36px;
+}
+.card:hover { border-color: rgba(224,122,95,0.2); }
+
+/* ---- QUOTE ---- */
+.quote {
+  border-left: 2px solid var(--coral);
+  padding-left: 30px;
+  margin: 40px 0;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--sand);
+  line-height: 1.6;
+}
+.quote-attr {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--steel);
+  margin-top: 12px;
+  font-style: normal;
+}
+
+/* ---- CHARACTER CARD ---- */
+.char-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 36px;
+  margin-bottom: 30px;
+}
+.char-name {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.char-role {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 16px;
+}
+
+/* ---- EPISODE BLOCK ---- */
+.ep-block {
+  border-left: 2px solid var(--aqua);
+  padding-left: 30px;
+  margin-bottom: 40px;
+}
+.ep-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--aqua);
+  margin-bottom: 6px;
+}
+.ep-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.ep-coords {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--steel);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* ---- TECH TABLE ---- */
+.tech-tier {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 30px;
+  margin-bottom: 20px;
+}
+.tech-tier-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.tier-essential .tech-tier-label { color: var(--aqua); }
+.tier-pro .tech-tier-label { color: var(--gold); }
+.tier-cinema .tech-tier-label { color: var(--coral); }
+
+/* ---- FOOTER ---- */
+footer {
+  padding: 80px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer p { font-size: 13px; opacity: 0.4; }
+
+/* ---- SCROLL ANIMATIONS ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Staggered card reveals */
+.grid-2 .card, .grid-3 .card,
+.grid-2 .char-card, .ep-block, .tech-tier {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.grid-2 .card.visible, .grid-3 .card.visible,
+.grid-2 .char-card.visible, .ep-block.visible, .tech-tier.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section label slide-in */
+.section-label {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.section-label.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Alotau clock pulse */
+@keyframes clockPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.clock-pulse {
+  animation: clockPulse 2s ease-in-out infinite;
+}
+
+/* Divider grow */
+.divider {
+  width: 0;
+  transition: width 0.8s ease;
+}
+.divider.visible {
+  width: 60px;
+}
+
+/* Quote border reveal */
+.quote {
+  border-left-color: transparent;
+  transition: border-left-color 0.6s ease 0.3s;
+}
+.quote.visible {
+  border-left-color: var(--coral);
+}
+
+/* ---- MEDIA PLACEHOLDERS ---- */
+.media-slot {
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: 2px;
+  padding: 20px;
+  margin: 30px 0;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.media-slot p {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--steel);
+  text-transform: uppercase;
+}
+.media-slot.has-content {
+  border: none;
+  background: none;
+  padding: 0;
+}
+/* Vimeo responsive embed */
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  margin: 30px 0;
+  border-radius: 2px;
+}
+.video-embed iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+/* External images - lightweight */
+.deck-img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  margin: 20px 0;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-eyebrow">A Documentary Series</div>
+  <h1><em>Unknown</em> Seas</h1>
+  <div class="hero-sub">Before it's gone.<br><br>A father. A son. A boat at the edge of the world.<br>One journey to find what's left — before it disappears.</div>
+  <div class="hero-meta">10 EPISODES &nbsp;·&nbsp; 25 MIN EACH &nbsp;·&nbsp; YOUTUBE FIRST &nbsp;·&nbsp; UNSCRIPTED / DOCU-ADVENTURE</div>
+  <div class="coord-display">
+    04°13'S &nbsp; 132°58'E <span>&nbsp;&nbsp;|&nbsp;&nbsp; RAJA AMPAT, INDONESIA</span>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ LOGLINE ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">The Concept</span>
+    <h2>The world's last untouched places are vanishing. This is the expedition to find them.</h2>
+    <div class="divider"></div>
+    <p class="lead"><strong>Unknown Seas</strong> follows Mike Crothers — a Texas entrepreneur and lifelong adventurer whose world was upended by a wrongful prosecution in Jackson Hole, Wyoming — and his son Michael, a sharp, restless young man who shares his father's name, his love of the ocean, and his need to escape. Together, they voyage aboard the FPB 97 <em>Iceberg</em> through the Indonesian archipelago, searching for the last pristine dive sites, uncontacted islands, and vanishing ecosystems on Earth.</p>
+    <p class="lead">This isn't a vacation. It's a reckoning — and a discovery. Mike is drawn to the water the way some people are drawn to mountains: it's where the noise stops. Michael is searching for something different — purpose, maybe, or the version of his life that the last few years stole from him. What they find together, in the deep, is worth more than either could have found alone.</p>
+    <p class="lead">Through Mike and Michael's eyes, we discover what remains. Through their journey, we confront what we're losing. <em>Before it's gone.</em></p>
+
+    <div class="quote">
+      "The sea, once it casts its spell, holds one in its net of wonder forever."
+      <div class="quote-attr">— Jacques Cousteau</div>
+    </div>
+    <p style="margin-top:20px;">Cousteau proved that the ocean could be television. He showed the world what lived beneath the surface. But Cousteau had the luxury of time — the reefs he filmed in the 1960s were pristine, untouched, abundant. Sixty years later, many of those same reefs are bleached or gone. <em>Unknown Seas</em> picks up where Cousteau left off — not to catalog what's healthy, but to witness what's left. To go to the coordinates no camera has reached. To document the unknown, before it becomes the lost.</p>
+  </div>
+</section>
+
+<!-- ============ HERO VIDEO ============ -->
+<section style="padding:0; background:var(--deep);">
+  <div style="max-width:1100px; margin:0 auto; padding:60px 40px;">
+    <div class="video-embed" style="padding-bottom:56.09%; border-radius:2px; overflow:hidden;">
+      <iframe src="https://player.vimeo.com/video/1176025700?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Iceberg - Northern Atolls - Raja Ampat"></iframe>
+    </div>
+    <p style="font-family:var(--mono); font-size:10px; letter-spacing:3px; color:var(--steel); text-align:center; margin-top:16px; text-transform:uppercase;">FPB 97 <em>Iceberg</em> &nbsp;·&nbsp; Indonesian Archipelago</p>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ THE JOURNEY ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">The Journey</span>
+    <h2>Mike &amp; Michael</h2>
+    <p class="subtle" style="margin-bottom:30px;">FATHER &amp; SON &nbsp;·&nbsp; EXPEDITION PARTNERS &nbsp;·&nbsp; THE HEART OF THE SHOW</p>
+    <div class="divider"></div>
+    <p style="font-family:var(--serif); font-size:16px; color:var(--sand); font-style:italic; margin-bottom:30px;">Note: Everything in this deck is a thought starter — a creative framework for what the show could be. Episode arcs, character descriptions, production techniques — all of it is designed to spark conversation, not to be prescriptive. The best version of this show will come from the people who live it.</p>
+
+    <h3>Mike</h3>
+    <p class="lead">A self-made businessman from Houston who built multiple companies across the United States. An adventurer by nature — dirt bikes, paragliding, snowmobiles, ATVs rolled until they broke. Scars cover his body like a map of a life lived without brakes. He fell in love with scuba diving as a kid when his stepfather introduced him to the water. He has never stopped going deeper.</p>
+    <p>Then everything changed. Living in Jackson Hole, what constitutional attorney Alan Dershowitz has called an egregious injustice upended Mike's family and drove him to the far side of the planet. Now he lives on the boat. He dives past 240 feet with his son. He wakes before sunrise. The sea sometimes eases the burden. He's searching for something — not treasure, not glory — but the feeling of being fully present again. And by chasing that feeling to the most remote coordinates on Earth, he takes us to places we would never otherwise see.</p>
+    <p>Mike's journey is the spine of the show. His adventurer's instinct drives where <em>Iceberg</em> goes. His emotional gravity grounds every episode. He's not a polished host — and that's the point. When he surfaces from a deep dive and says nothing, just stares at the horizon, we understand more than any narration could deliver.</p>
+
+    <div class="divider"></div>
+
+    <img class="deck-img" src="https://i.ibb.co/qZdL28d/mike-and-michael.jpg" alt="Mike and Michael Crothers" loading="lazy" style="margin:30px 0 40px; border-radius:2px;">
+
+    <h3>Michael</h3>
+    <p class="lead">Mike's son, his dive partner, his co-navigator, and his counterweight. Michael shares his father's first name, his restlessness, and his compulsion to push past safe limits. He was a star trumpet player in Wyoming, on track for a top college, when the family's nightmare derailed everything. He writes poetry that could strip paint.</p>
+    <p>Michael dives to 270 feet beside his father, communicating in hand gestures: <em>Go this way. Go that way. Okay?</em> Where Mike internalizes, Michael processes out loud. Where Mike seeks solitude, Michael is still figuring out whether he wants to stay on the boat or build something new on land. He brings a different energy — younger, more open, occasionally more reckless — that keeps the show from becoming a single note. The tension between a father who needs the sea and a son who might be ready to leave it is what makes this more than a dive show. It's a relationship unfolding in real time, in the most extreme setting imaginable.</p>
+
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ THE CREW ============ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">The Cast of Misfits</span>
+    <h2>The Crew of <em>Iceberg</em></h2>
+    <p class="lead" style="max-width:700px;">Every great expedition is defined by its crew. Below are examples of how the ensemble could take shape — the archetypes and dynamics that would make <em>Iceberg</em> a living, breathing world on screen. These are thought starters. The real crew will define itself.</p>
+    <div class="divider"></div>
+
+    <img class="deck-img" src="https://i.ibb.co/Pz0h0KwH/Screenshot-2026-03-22-at-18-12-50.png" alt="The crew of Iceberg" loading="lazy" style="margin:20px 0 30px; border-radius:2px;">
+
+    <div class="char-card">
+      <div class="char-name">Yohanne Delhote</div>
+      <div class="char-role">Videographer · Character · Visual Storyteller</div>
+      <p>Yohanne is not a fly-on-the-wall cameraman — he's a full member of the crew and a character in the show. A French cinematographer with a restless eye and a gift for capturing raw, unscripted moments. On <em>Iceberg</em>, Yohanne operates the bridge camera array, handles underwater housing rigs, and flies the expedition drones. He's also the crew member most likely to ask the question no one else will — and the camera keeps rolling.</p>
+      <p class="subtle">Reference: <a href="https://www.youtube.com/@Yohann.Delhote" target="_blank">youtube.com/@Yohann.Delhote</a></p>
+    </div>
+
+    <p class="subtle" style="margin-bottom:20px;">The following are <strong>example character archetypes</strong> — the kinds of roles and dynamics that would give the ensemble depth. Names and specifics will evolve as the crew comes together.</p>
+
+    <div class="grid-2">
+      <div class="char-card">
+        <div class="char-name">Shane <span style="font-family:var(--mono);font-size:10px;color:var(--steel);"> — EXAMPLE</span></div>
+        <div class="char-role">The Loyalist</div>
+        <p>The steady hand. Makes the boat work while Mike and Michael chase the deep. Every expedition needs someone who actually remembers to check the fuel and fix the fuse. The person who keeps things running when everyone else is chasing the horizon.</p>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Wade <span style="font-family:var(--mono);font-size:10px;color:var(--steel);"> — EXAMPLE</span></div>
+        <div class="char-role">The Wild Card</div>
+        <p>Brings unpredictability and humor to the tight quarters of <em>Iceberg</em>. In a show about remote waters and heavy emotions, this person provides the release valve. The one who says what everyone is thinking.</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="char-card">
+        <div class="char-name">Zach <span style="font-family:var(--mono);font-size:10px;color:var(--steel);"> — EXAMPLE</span></div>
+        <div class="char-role">The Apprentice</div>
+        <p>The youngest crew member. Learning the ocean in real time — their growth across the season mirrors the audience's own journey from landlocked to sea-born. Fresh eyes that see what the veterans have stopped noticing.</p>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Rama &amp; Suheimin <span style="font-family:var(--mono);font-size:10px;color:var(--steel);"> — EXAMPLE</span></div>
+        <div class="char-role">Cultural Navigators</div>
+        <p>Indonesian crew members whose local knowledge, language skills, and cultural connections open doors that no foreign vessel could otherwise access. The bridge between <em>Iceberg</em> and the communities the show encounters.</p>
+      </div>
+    </div>
+
+    <img class="deck-img" src="https://i.ibb.co/Ngnb3d92/Screenshot-2026-03-22-at-18-18-02.png" alt="Crew life aboard Iceberg" loading="lazy" style="margin:30px 0 10px; border-radius:2px;">
+
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ EPISODE STRUCTURE ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">Episode Architecture</span>
+    <h2>Every Episode Follows a Rhythm</h2>
+    <div class="divider"></div>
+
+    <img class="deck-img" src="https://i.ibb.co/v4jjB7J1/Screenshot-2026-03-22-at-18-17-27.png" alt="The bridge of Iceberg" loading="lazy" style="margin:20px 0 30px; border-radius:2px;">
+
+    <p class="lead" style="max-width:700px; margin-bottom:50px;">Each 25-minute episode is structured around the natural rhythms of life aboard <em>Iceberg</em> — the planning, the journey, the discovery, and the reflection. No forced drama. The ocean provides enough.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>Act I — The Bridge Meeting</h4>
+        <p>Every episode opens on the bridge. The crew gathers around the chart table. Mike leads the planning: where are we? Where are we going? What did we see underwater yesterday? Satellite weather, tidal charts, local intel from Rama. These are real decisions with real consequences — fuel, weather windows, currents. The latitude/longitude coordinates appear on screen as custom motion graphics, placing us on the map in these impossibly remote locations. Mike marks the next waypoint. The engines turn over.</p>
+      </div>
+      <div class="card">
+        <h4>Act II — The Transit</h4>
+        <p>The journey between sites. This is where character emerges. Video log entries from Mike and Michael — not diaries, but raw, unpolished reflections recorded on the move. Drone footage tracks <em>Iceberg</em> from above as she cuts through open water. On-screen graphics show the vessel's position, distance from the nearest inhabited island, and key facts about the region: <em>"Last surveyed by Western cartographers: 1927."</em> The transit builds anticipation.</p>
+      </div>
+      <div class="card">
+        <h4>Act III — The Discovery</h4>
+        <p>The dive. The island. The encounter. This is the visual centerpiece — shot with cinema-grade underwater rigs, 360° cameras, and ROVs where depth exceeds human limits. Mike and Michael descend together, communicating in hand signals. What they find is documented for the first time. We see species and reef systems that have never been filmed. We visit communities that haven't seen outsiders in years. The footage is treated with reverence — long, unbroken takes. No frenetic cutting. Let the audience breathe with the divers.</p>
+      </div>
+      <div class="card">
+        <h4>Act IV — The Reckoning &amp; The Witness</h4>
+        <p>Evening. Back on <em>Iceberg</em>. The crew processes what they've seen — what's thriving, what's dying, what surprised them. Mike's video log captures the emotional truth of the day. The episode's research facts appear as elegant lower-third graphics: conservation status, species counts, threat timelines. The Alotau clock ticks. And then: <strong>the witness statement</strong>. A crew member faces the camera and states, formally, what they saw, where, and when. Coordinates. Date. Species. Conditions. It lasts 60–90 seconds. It's the same every episode. It never gets old — because what they witnessed changes every time. The coordinates of tomorrow's destination appear. The question tightens: <em>Can a broken man be healed by a dying ocean?</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ EPISODE GUIDE ============ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Season One</span>
+    <h2>The Expedition Route</h2>
+    <p class="lead" style="max-width:700px; margin-bottom:20px;">Ten episodes. One continuous voyage. From the harbor at Ambon to the canoe races of Papua New Guinea — charting a course through the most biodiverse and least-visited waters on the planet.</p>
+    <p style="max-width:700px; margin-bottom:20px;">Every great expedition series lives or dies on per-episode jeopardy. Beautiful diving and quiet reflection are compelling for two episodes — by episode four, the audience needs concrete stakes within each hour. Otherwise the show becomes meditative to the point of repetitive. The bridge meeting structure solves much of this: it surfaces a specific tactical problem at the top of every episode — a weather window, a fuel calculation, a crew disagreement, an encounter that forces a moral choice — and the episode's 25 minutes are spent resolving it. Every bridge meeting ends with a decision. Every decision has consequences by the end of the episode.</p>
+    <p style="max-width:700px; margin-bottom:50px;">Layered over every episode: <strong>the Alotau clock</strong>. The Kenu &amp; Kundu Festival happens the first weekend of November — November 1, 2026. Miss it, and the season has no finale. The on-screen countdown tightens with every episode, giving the full season an accelerating pulse that no individual episode could provide alone.</p>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 01 · 42 DAYS TO ALOTAU</div>
+      <div class="ep-title">Before It's Gone</div>
+      <div class="ep-coords">03°41'S 128°10'E — AMBON HARBOR, MALUKU</div>
+      <p><em>Iceberg</em> departs Ambon at night. The lights of town fade. Mike introduces himself, his son, and his reasons for being on the far side of the world. We meet the crew — and the boat.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>A faulty fuse in the engine delays departure by a full day. The crew scrambles to source a replacement part in Ambon, a town with no marine supply store. The clock is introduced: 42 days to cover 2,300+ nautical miles of open ocean to reach Alotau by November 1. Every day lost matters. The fuse is found. They leave after dark. The first bridge meeting plots the course east — and Mike admits to the camera that losing a day this early already has him worried.</p>
+      <h4 style="color:var(--sand); margin-top:14px;">AI Voice Fragment</h4>
+      <p class="subtle"><em>Over drone footage of Iceberg cutting through dark water: "Nobody knows me here. Nobody cares about me. Nobody doesn't not care either... Down here in Indonesia, it's all anonymity."</em></p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 02 · 40 DAYS TO ALOTAU</div>
+      <div class="ep-title">The End of the Earth</div>
+      <div class="ep-coords">03°48'S 131°02'E — CERAM-LAUT &amp; WATUBELA ARCHIPELAGO</div>
+      <p>The first real dive of the series. Mike and Michael descend past 200 feet off uninhabited islands near the Watubela Archipelago. The last time foreigners visited one of these islands was years ago. An encounter with local fishermen who trade live catch for rice, beans, and cigarettes — mostly booze.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>Michael's abdomen is scraped by a jagged piece of underwater rock. The wound isn't life-threatening but it's deep enough to question whether he can dive the next day. The bridge meeting becomes a first-aid assessment: How bad is it? Do they need to divert to a town with a clinic? The nearest one is 14 hours away. Michael insists he's fine. Mike isn't sure. The tension between a father's protectiveness and his son's stubbornness surfaces for the first time.</p>
+      <h4 style="color:var(--sand); margin-top:14px;">AI Voice Fragment</h4>
+      <p class="subtle"><em>Over the underwater descent: "I love diving because it brings me right to the brink, down where the peril resides, and I'm tempted to put an end to it all."</em></p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 03 · 36 DAYS TO ALOTAU</div>
+      <div class="ep-title">The Breeze of Banda Neira</div>
+      <div class="ep-coords">04°31'S 129°54'E — BANDA NEIRA, BANDA SEA</div>
+      <p>The crew arrives at Banda Neira — a waystation of legend, reachable only between monsoon seasons. They meet Abba, the unofficial mayor, who knows how to get things done. The Spice Islands' blood-soaked colonial history — the Dutch massacre of 1621 — provides a backdrop for present-day beauty.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>The monsoon window is narrowing. Satellite weather shows a storm system building to the south that could close the Banda Sea for weeks. The bridge meeting becomes a genuine tactical debate: stay in Banda Neira and risk being stranded — or leave immediately and sacrifice the dive they came for. Mike wants to stay. Rama argues for leaving. The crew splits. They decide to stay one more day — a gamble that plays out across episodes 3 and 4.</p>
+      <h4 style="color:var(--sand); margin-top:14px;">AI Voice Fragment</h4>
+      <p class="subtle"><em>Over footage of Banda Neira at dusk: "What happened to my family and me... I joined my dad on the boat, getting away from it all in the far reaches of Indonesia."</em></p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 04 · 33 DAYS TO ALOTAU</div>
+      <div class="ep-title">The Dig</div>
+      <div class="ep-coords">04°33'S 129°58'E — BANDA NEIRA (CONTINUED)</div>
+      <p>The gamble cost them. Weather has trapped the crew in Banda Neira. But the forced stop becomes the episode's gift: Mike discovers an active archaeological excavation beneath the island — evidence of ancient trade routes, ceramics from the Silk Road, artifacts from the spice trade that drew the Portuguese in 1512.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>Three days grounded. The Alotau countdown tightens. On the bridge, the crew recalculates: they've lost their buffer. From here forward, every transit must be efficient — no more lingering. The weather breaks at midnight. Mike makes the call: they leave at 1 a.m. The departure — engines in the dark, Banda Neira's lights receding — is shot entirely on the bridge camera array. No crew member is performing. The moment is real.</p>
+      <h4 style="color:var(--sand); margin-top:14px;">First Time-Lapse Deployment</h4>
+      <p class="subtle">Before leaving, the crew deploys their first underwater time-lapse rig on a reef wall off Banda Neira. The camera is anchored at 15 meters, sealed in a pressure housing, set to capture one frame every 30 minutes. It will record continuously for 6 months — day into night, night into day, through tidal cycles and seasonal shifts. A future expedition retrieves it. What it captures becomes the opening image of Season 2.</p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 05 · 28 DAYS TO ALOTAU</div>
+      <div class="ep-title">Fathom</div>
+      <div class="ep-coords">02°45'S 131°30'E — DARAM ISLAND &amp; PULAU SABUDA, NEAR WEST PAPUA</div>
+      <p><strong>Michael's episode.</strong> For the first time, Michael leads the bridge meeting. He's been studying the charts and wants to push north toward Pulau Sabuda — a site Mike dismissed as "too shallow" on the first pass. Michael disagrees. He's seen something on the sonar. He wants to prove it.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>Father and son disagree on the route for the first time. Mike wants to press east toward Raja Ampat — every day counts. Michael wants this detour. The crew watches. <em>"I can feel change is coming, even as I've made myself at home on the boat... I don't want to leave him alone on the boat."</em> This episode makes that tension visible. Michael is 21, trying to find his own authority aboard his father's vessel. The bridge meeting becomes a negotiation. Mike relents — not because Michael is right, but because a father recognizes his son needs to lead. Michael's dive reveals a pristine reef teeming with lionfish, pufferfish, longnose emperors, and coral trout — better than expected. The vindication is quiet. The shift in dynamic is not.</p>
+      <h4 style="color:var(--sand); margin-top:14px;">AI Voice Fragment</h4>
+      <p class="subtle"><em>Over Michael's first solo bridge meeting: "I share not only my father's last name. I share his first. But to avoid confusion, he's Dad, or Mikey, depending on the circumstance, or my mood. And I'm Michael. Sometimes Mikey Jr. Depending on his."</em></p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 06 · 24 DAYS TO ALOTAU</div>
+      <div class="ep-title">The Brink</div>
+      <div class="ep-coords">01°30'S 130°45'E — CERAM SEA, APPROACHING RAJA AMPAT</div>
+      <p>The transit episode. Overcast skies. Mediocre dive sites. Not every day delivers paradise. The crew is tired. Tempers flare over small things — whose turn to cook, a disagreement about fuel management. The ocean is flat and featureless for hours.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>A liveaboard tourist vessel appears on the horizon — exactly the kind of operation Mike and Michael despise. <em>"We seek out pristine scuba diving sites that have not been discovered by the liveaboards, tourists from Australia and elsewhere, who come in droves."</em> The liveaboard is heading to the same coordinates. The bridge meeting becomes a race: can <em>Iceberg</em> reach the dive site first, get in the water, and document it before the tourist boat arrives and disturbs everything? They push the engines. They make it. The dive at sunset — the golden hour light penetrating 20 meters of water — delivers the most visually stunning footage of the season so far. Then the liveaboard's anchor drops 200 meters away, and the magic breaks.</p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 07 · 20 DAYS TO ALOTAU</div>
+      <div class="ep-title">The Last Coordinates</div>
+      <div class="ep-coords">00°14'S 130°31'E — RAJA AMPAT</div>
+      <p>The expedition's primary goal. Raja Ampat — "The Four Kings" — straddling the equator at the confluence of the Indian and Pacific Oceans. Home to the richest tropical marine biodiversity on the planet. Mike and Michael descend a wall to 73 meters — 240 feet. Schools of fusiliers, rainbow runners, surgeonfish. Bug-eyed blenies, psychedelic wrasse, trevally prowling for the kill. Cave art dating back 5,000 years.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>At 73 meters, Mike loses sight of Michael. <em>"My dad lost sight of me somewhere underwater... I'd disappeared in the mist below 270 feet, and he thought he'd have to call my mom back in Colorado with a speech about how her son had been killed in a tragic accident. A speech that Dad had rehearsed in his head a hundred times."</em> The minutes that Michael is out of visual contact are the tensest of the season. The depth gauges are deep red. The air supply is ticking. When they reunite — Mike's hand signal: <em>Okay?</em>, Michael's response: <em>Okay</em> — the audience exhales. This is the visual and emotional climax of the season. The question crystallizes: <em>how long can this last?</em></p>
+      <h4 style="color:var(--sand); margin-top:14px;">Second Time-Lapse Deployment</h4>
+      <p class="subtle">The crew deploys their second time-lapse rig at Raja Ampat — anchored at 20 meters on a wall that has never been formally surveyed. This rig will run for 6+ months, recording the reef through both monsoon seasons. If the coral bleaches, this rig captures the evidence. If it thrives, the rig captures the proof. Either way: testimony.</p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 08 · 14 DAYS TO ALOTAU</div>
+      <div class="ep-title">Blackwater</div>
+      <div class="ep-coords">00°20'S 131°00'E — RAJA AMPAT, OPEN WATER (NIGHT)</div>
+      <p><strong>The night dive episode.</strong> Almost no television series has filmed extensive night dives in open ocean. The visual language is completely alien — blackwater diving, where the ocean floor is hundreds of meters below and the only light is what you bring. Bioluminescent plankton. Creatures that only emerge after dark: larval fish, translucent jellyfish, deep-sea squid drawn to the lights. It looks like outer space. The contrast between <em>Iceberg</em> lit up above and the infinite black water below is inherently cinematic.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>Night diving at this depth, in open ocean, is the most dangerous thing the crew does all season. The margin for error is razor-thin: a lost safety line means drifting alone in black water with no reference point. Mike's narration about darkness — the darkness inside him, the darkness he's escaping — takes on literal, physical dimension. The bridge meeting before the dive is the most serious of the season: safety protocols, emergency procedures, abort signals. Wade pushes back — he doesn't think the risk is worth it. Mike overrules him. The dive delivers footage no audience has seen before. But the moment Mike and Michael surface, gasping, grabbing the dive ladder — that's the image that stays.</p>
+      <h4 style="color:var(--sand); margin-top:14px;">What They See</h4>
+      <p class="subtle">Blackwater diving in Raja Ampat reveals the ocean's night shift: larval mantis shrimp no bigger than a fingernail, paper nautilus (argonauts), blanket octopus trailing iridescent capes, comb jellies pulsing with bioluminescent light, and the alien geometry of siphonophores — colonial organisms that can stretch 40 meters long. Every frame is footage that has never been broadcast from these coordinates.</p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 09 · 8 DAYS TO ALOTAU</div>
+      <div class="ep-title">Uncharted Blood</div>
+      <div class="ep-coords">VARIOUS — EASTERN INDONESIAN WATERS / WESTERN PNG APPROACH</div>
+      <p>The reckoning. After the highs of Raja Ampat, the crew transits east toward Papua New Guinea. Along the way, they encounter the other side of the story: bleached coral, plastic debris washing against uninhabited islands, the scars of dynamite fishing — craters in the reef where explosions killed everything.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>The crew encounters an active illegal fishing operation — a small boat using cyanide to stun reef fish for the live export trade. On camera, the tension is different: Yohanne films everything. The bridge meeting becomes a moral debate — do they report it? To whom? The nearest coast guard is hundreds of miles away. Mike's instinct (shaped by his own experience with corrupt authorities) is to document and move on. Michael wants to do more. The debate is unresolved. The witness statement at the end of this episode carries more weight than any other in the season.</p>
+      <h4 style="color:var(--sand); margin-top:14px;">AI Voice Fragment</h4>
+      <p class="subtle"><em>Over footage of bleached reef: "What is there, after all the wreckage of my life?"</em></p>
+    </div>
+
+    <div class="ep-block">
+      <div class="ep-num">EPISODE 10 · 0 DAYS TO ALOTAU</div>
+      <div class="ep-title">Past the Line</div>
+      <div class="ep-coords">10°18'S 150°28'E — ALOTAU, MILNE BAY, PAPUA NEW GUINEA</div>
+      <p>The season finale. <em>Iceberg</em> arrives at Alotau with less than 24 hours to spare. The Kenu &amp; Kundu Festival — an annual gathering where tribes from across Milne Bay Province's 600+ islands race hand-carved outrigger canoes powered by pandanus-leaf sails. White-tipped Huhu Lopo war canoes. Shell-speckled Kula trading canoes from the Trobriand Islands. Blue-sailed canoes from the Louisiade Archipelago. Warriors in grass skirts and feather headdresses heckle competitors from outriggers. Conch shells echo across the water.</p>
+      <h4 style="color:var(--aqua); margin-top:14px;">The Jeopardy</h4>
+      <p>They almost didn't make it. The Alotau clock — running since episode one — hits zero. The last 48 hours involved pushing through rough weather in the Solomon Sea, a mechanical issue with the starboard engine, and a genuine moment where Mike considered skipping the festival to play it safe. Michael talked him into pushing through. The role reversal is complete: the son now leads the father. <em>Iceberg</em> anchors among dozens of sailing canoes the morning of the festival. The crew watches from the deck as hand-carved boats — each one a representation of a community's identity, each one built with techniques passed down for centuries — race across water that may not sustain them much longer.</p>
+      <h4 style="color:var(--sand); margin-top:14px;">The Final Image</h4>
+      <p class="subtle">Mike stands alone on the bow of <em>Iceberg</em>. The canoe race is in the distance. He says nothing. The coordinates are on screen. The Alotau clock reads 00:00:00. The series' question — <em>Can a broken man be healed by a dying ocean?</em> — is answered not with words but with his face. Is he healed? Is the ocean saved? The ambiguity is the answer. The final witness statement. The coordinates fade to black.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ YOUTUBE STRATEGY ============ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Distribution</span>
+    <h2>YouTube First</h2>
+    <div class="divider"></div>
+    <p class="lead" style="max-width:700px; margin-bottom:20px;"><em>Unknown Seas</em> launches direct-to-audience on YouTube. No gatekeepers. No development hell. Own the audience. Own the data. Own the IP. If the show works, every streamer and network comes to us — with proof of concept, audience metrics, and leverage.</p>
+    <p style="max-width:700px; margin-bottom:40px;">The ocean/expedition niche on YouTube is massively underserved at the high-production-value end. There's sailing content and there's dive content, but almost nothing that looks like cinema. <em>Unknown Seas</em> fills that gap. And the 25-minute runtime is built specifically for how YouTube audiences actually watch.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>Why 25 Minutes</h4>
+        <p>YouTube's algorithm rewards <strong>watch-through rate</strong> more than total watch time. A 25-minute episode where 80% of viewers finish is worth infinitely more than a 45-minute episode where 40% drop off at minute 18. The four-act structure works perfectly at this length: Bridge Meeting (3–4 min), Transit (4–5 min), Discovery (8–10 min), Witness Statement closing (2 min). No fat. Every minute earns the next. A tight episode that ends with the audience wanting more is worth infinitely more than a long one that sags in Act III. The witness statement closing gives every episode a definitive ending beat regardless of runtime — so a lean episode still feels complete, not truncated.</p>
+      </div>
+      <div class="card">
+        <h4>The Three Content Layers</h4>
+        <p><strong>Layer 1 — Main Episodes (25 min):</strong> The ten-episode season. Cinematic, structured, the flagship product. One release per week. These are what subscribers come for.</p>
+        <p><strong>Layer 2 — Companion Cuts (8–12 min):</strong> Released between main episodes. "The Dive" — just the underwater footage, minimal narration, almost meditative. "The Bridge" — the full uncut bridge meeting. "Mike's Video Log" — standalone. These feed the algorithm (more uploads, more surface area) while giving the core audience deeper cuts. The main episode is the film. The companions are the extended universe.</p>
+        <p><strong>Layer 3 — Shorts (60 sec, vertical):</strong> The growth engine. One single striking moment per Short: Mike surfacing from a dive. The Alotau clock ticking. A blackwater creature pulsing. One witness statement. These are what the algorithm pushes to new viewers. The conversion funnel: Short → Main Episode → Subscribe → Companion content → Binge the back catalog.</p>
+      </div>
+      <div class="card">
+        <h4>Episode Titles for YouTube</h4>
+        <p>The series title <em>Unknown Seas</em> lives in the channel name and visual identity. But every individual episode also needs a <strong>clickable YouTube title</strong> that works independently in a feed — because on YouTube, every episode must sell itself to someone who's never heard of the show.</p>
+        <p>Examples of how episode titles translate:<br>
+        <span class="subtle">Ep 7 "The Last Coordinates" → <em>"We Dove 240 Feet Into the Most Biodiverse Water on Earth"</em></span><br>
+        <span class="subtle">Ep 8 "Blackwater" → <em>"Night Diving in Open Ocean — What We Found Shouldn't Exist"</em></span><br>
+        <span class="subtle">Ep 5 "Fathom" → <em>"My 21-Year-Old Son Overruled Me on Our Expedition Boat"</em></span><br>
+        <span class="subtle">Ep 10 "Past the Line" → <em>"We Had 24 Hours to Sail 200 Miles for a Once-a-Year Event"</em></span></p>
+        <p>The cinematic title (Fathom, The Brink, Blackwater) appears on screen at the start of the episode. The YouTube title sells the click. Both exist. Neither replaces the other.</p>
+      </div>
+      <div class="card">
+        <h4>Thumbnails &amp; Growth</h4>
+        <p>YouTube audiences decide in 1.5 seconds. Each episode needs a single striking image — not a logo, not text-heavy. Mike's silhouette against deep blue water. The depth gauge glowing red at 73 meters. The Alotau clock at 00:00:00. A blackwater creature lit against infinite dark. Yohanne's camera pointed into the abyss. High contrast. Minimal text. One face, one emotion, one question.</p>
+        <p><strong>The audience:</strong> Ocean and expedition content on YouTube skews 25–54, educated, environmentally aware, and deeply loyal. Sailing channels (SV Delos, Sailing La Vagabonde) have built audiences of 500K–1M+ subscribers with far less cinematic production value. The dive/conservation niche (Jonathan Bird, DALLMYD) draws tens of millions of views per video. <em>Unknown Seas</em> sits at the intersection of both — and adds the personal narrative layer that neither niche currently offers.</p>
+        <p><strong>The streaming pivot:</strong> If Season 1 builds 100K+ subscribers and strong watch-through metrics, the show becomes undeniable to Netflix, Apple, or National Geographic. They can license existing episodes, commission Season 2 at higher budget, or both. YouTube isn't the ceiling — it's the launchpad. The audience comes with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ MUSIC ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">Sound &amp; Music</span>
+    <h2>Two Sonic Identities</h2>
+    <div class="divider"></div>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Option A — Minimal Ambient (Primary)</h4>
+        <p>Sparse, textural compositions built from hydrophone recordings, processed piano, and sub-bass drones. The sound of the ocean itself becomes the score — whale song, engine hum, hull creaking, the fizz of bubbles during descent. Original compositions use analog synthesizers and treated field recordings to create an immersive, almost meditative sonic landscape. Think Brian Eno's <em>Music for Films</em> meets the underwater recordings of <em>Blue Planet II</em>. Silence is scored. The spaces between sounds matter as much as the sounds themselves.</p>
+      </div>
+      <div class="card">
+        <h4>Option B — Roots Reggae Underscore</h4>
+        <p>For select sequences — transits, crew moments, lighter scenes — a licensed reggae underscore provides warmth, rhythm, and an island-adjacent groove. The reference point: artists in the orbit of <strong>10 Ft. Ganja Plant</strong> — deep dub basslines, clean guitar skank, minimal vocals. New and upcoming artists whose tracks license affordably and whose sound evokes the slow-burn energy of tropical waters. This isn't party reggae. It's the music you'd hear leaking from a shortwave radio on a fishing boat at sunset — organic, unhurried, slightly melancholic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ COMPARABLE SHOWS ============ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Market Position</span>
+    <h2>There Is Almost Nothing Like This</h2>
+    <div class="divider"></div>
+    <p class="lead" style="max-width:700px; margin-bottom:40px;">The intersection of personal redemption narrative, extreme expedition, and environmental urgency — on a single vessel — has almost no direct precedent in unscripted television.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Whale Wars</h3>
+        <p><em>Animal Planet, 2008–2015</em><br>The closest structural parallel. A single vessel (MY <em>Steve Irwin</em>), a mission-driven crew, and the ocean as adversary and stage. But Whale Wars was about confrontation. <em>Unknown Seas</em> is about discovery. We take cues from its shipboard storytelling, its character-driven tension, and its ability to make a boat feel like a world — but replace combat with contemplation.</p>
+      </div>
+      <div class="card">
+        <h3>My Octopus Teacher</h3>
+        <p><em>Netflix, 2020</em><br>Proved that a single person's emotional relationship with the ocean can captivate a global audience. Won the Academy Award for Best Documentary. Mike's story shares that same intimate, almost spiritual connection to diving — but extends it across an entire season, with a richer cast and higher stakes.</p>
+      </div>
+      <div class="card">
+        <h3>Blue Planet II</h3>
+        <p><em>BBC, 2017</em><br>The gold standard for underwater cinematography. We aspire to its visual quality. But <em>Blue Planet</em> is narrated by a British institution from a remove. <em>Unknown Seas</em> puts a real, flawed, grieving human in the water. The emotional register is completely different.</p>
+      </div>
+      <div class="card">
+        <h3>Expedition Unknown</h3>
+        <p><em>Discovery, 2015–present</em><br>Josh Gates travels to remote places investigating mysteries. Shares our adventure DNA but is host-driven entertainment. We're rawer, less produced, and the mysteries we're chasing are ecological, not archaeological.</p>
+      </div>
+      <div class="card">
+        <h3>Lost</h3>
+        <p><em>ABC, 2004–2010</em><br>Not a documentary — but the cultural reference point the audience will feel. <em>Lost</em> proved that remote, mysterious, beautiful locations create compulsive viewing. But Lost was about survival. <em>Unknown Seas</em> is about discovery — finding what's still alive out there, and within.</p>
+      </div>
+      <div class="card">
+        <h3>Chasing Coral</h3>
+        <p><em>Netflix, 2017 · Emmy Winner</em><br>A team of divers documented the most severe coral bleaching event in recorded history. Won the Emmy for Outstanding Nature Documentary and was shortlisted for the Oscar. Shares our environmental urgency and underwater cinematography ambitions. But <em>Chasing Coral</em> was science-first, personality-second. We invert that — the human story pulls the audience in; the environmental revelation lands harder because we've earned emotional investment.</p>
+      </div>
+      <div class="card">
+        <h3>180° South</h3>
+        <p><em>2010 · Documentary Feature</em><br>A young adventurer retraces a 1968 journey to Patagonia by boat and foot. Beautiful, meditative, and spiritual — with a similar "journey as metaphor for inner transformation" structure. Proves that slow-paced expedition docs find passionate audiences. <em>Unknown Seas</em> takes this contemplative DNA and adds episodic structure, higher production value, and deeper character work.</p>
+      </div>
+      <div class="card">
+        <h3>Long Way Round / Down</h3>
+        <p><em>Sky/Apple TV, 2004–2020</em><br>Ewan McGregor and Charley Boorman's motorcycle expeditions proved that two friends on a journey through difficult terrain — with genuine emotion and unscripted mishaps — can sustain multiple seasons. The father-son dynamic in <em>Unknown Seas</em> carries even deeper emotional stakes than friendship.</p>
+      </div>
+      <div class="card">
+        <h3>Jago: A Life Underwater</h3>
+        <p><em>2015 · Documentary Short</em><br>A 78-year-old Indonesian free-diver hunts on a single breath. Shot in the same waters we're filming. Proves that Indonesia's maritime culture is endlessly cinematic and that a single person's relationship with the ocean can be profoundly moving even in 25 minutes.</p>
+      </div>
+      <div class="card">
+        <h3>The Gap</h3>
+        <p>No show currently combines: (1) a personal redemption arc, (2) a father-son relationship, (3) expedition-grade ocean exploration, (4) environmental urgency, and (5) the intimate texture of living on a single vessel. This is the gap. <em>Unknown Seas</em> fills it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ STRATEGIC ASSESSMENT ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">Creative Strategy</span>
+    <h2>The Central Question</h2>
+    <div class="divider"></div>
+
+    <div style="text-align:center; padding:60px 0 50px; max-width:700px; margin:0 auto;">
+      <p style="font-family:var(--serif); font-size:clamp(28px,4vw,42px); font-weight:300; font-style:italic; color:var(--white); line-height:1.4;">Can a broken man be healed<br>by a dying ocean?</p>
+      <div class="divider" style="margin:30px auto;"></div>
+      <p>Every episode tightens this question. The finale answers it without a single word.</p>
+    </div>
+
+    <p class="lead" style="max-width:700px; margin-bottom:50px;"><em>Free Solo</em> asked: "Will he fall?" <em>My Octopus Teacher</em> asked: "Can a human truly connect with a wild animal?" <em>Unknown Seas</em> asks something more complex — because neither half of the question has a clean answer. Mike may never be fully healed. The ocean may never be fully saved. But the act of searching — of going to the edge and witnessing what remains — is its own form of redemption. The audience holds this question for ten episodes. The finale gives them an image, not an answer. Mike on the bow of <em>Iceberg</em>, watching hand-carved boats race across water that may not sustain them much longer. The ambiguity is the answer.</p>
+
+    <h3>How We Avoid the Traps</h3>
+    <p style="margin-bottom:30px;">Every show of this type faces predictable failure modes. Here's how we've designed around each one.</p>
+
+    <div class="grid-2" style="margin-bottom:50px;">
+      <div class="card">
+        <h4>The Trap: "Beautiful But Repetitive"</h4>
+        <p>"We dive, it's stunning, Mike reflects" is compelling twice. By episode four, the audience needs escalating per-episode stakes or the show becomes ambient screensaver content.</p>
+        <h4 style="color:var(--aqua); margin-top:16px;">How We Solve It</h4>
+        <p>The <strong>bridge meeting structure</strong> is specifically designed to inject concrete tactical jeopardy into every episode. It functions as the show's inciting incident: each bridge meeting surfaces a problem — a closing weather window, a fuel calculation, a route disagreement, an encounter with illegal fishing — and the episode's 25 minutes are spent resolving it. The bridge meeting gives the audience a reason to stay beyond beauty: <em>will they make it? Will they agree? What happens if they don't?</em> Combined with the <strong>Alotau ticking clock</strong>, every episode carries both local stakes (this episode's problem) and season-wide stakes (the countdown). The beauty is the reward. The jeopardy is the engine.</p>
+      </div>
+      <div class="card">
+        <h4>The Trap: "Backstory Overload"</h4>
+        <p>Mike's Jackson Hole story is what gives him depth — the wrongful prosecution, Alan Dershowitz, the family destruction. But if the show leads with too much legal narrative, it becomes a grievance document. If it uses too little, Mike's motivations feel vague and the audience never understands why this man is on a boat on the far side of the planet.</p>
+        <h4 style="color:var(--aqua); margin-top:16px;">How We Solve It</h4>
+        <p>The <strong>AI voice narration</strong> is our dosing mechanism. Small, carefully selected fragments — never more than 60–90 seconds per episode — are layered over ocean footage as interior voiceover. The viewer pieces the backstory together across the season like a puzzle. Episode 1 hints. Episode 3 reveals. Episode 7 lands the hardest truth. By the finale, they know everything — but they were never lectured. The Jackson Hole drama becomes a shadow narrative: always present, never dominant. The ocean story leads. The human story deepens.</p>
+      </div>
+      <div class="card">
+        <h4>The Opportunity: Michael's Own Arc</h4>
+        <p>The show is strongest when both Mike and Michael have their own narrative weight. Michael has his own damage, his own restlessness, his own unfinished questions about what comes next. A show about two people trying to find themselves — together, in the same water — is more compelling than any single perspective could be.</p>
+        <h4 style="color:var(--aqua); margin-top:16px;">How We Build It</h4>
+        <p><strong>Episode 5 — "Fathom" — is Michael's episode.</strong> He leads the bridge meeting, challenges the route, and proves his instinct right. By the finale, the dynamic has evolved: Michael talks Mike into pushing through the storm to reach Alotau. The son leads. This arc, built across ten episodes, is what gives the show its emotional depth — and what keeps the audience invested in both characters equally.</p>
+      </div>
+      <div class="card">
+        <h4>The Trap: "Observation Without Action"</h4>
+        <p>A show that documents environmental destruction but does nothing about it eventually exhausts the audience. "So you saw bleached coral... then what?" The conservation message needs muscle, not just mourning.</p>
+        <h4 style="color:var(--aqua); margin-top:16px;">How We Solve It</h4>
+        <p>The <strong>underwater time-lapse legacy rigs</strong> transform the show from tourism into science. At two major sites (Banda Neira and Raja Ampat), the crew anchors sealed camera rigs to the reef — each one recording one frame every 30 minutes for 6+ months, continuously, day into night and night into day, through tidal cycles and monsoon seasons. A future expedition retrieves the rigs. If the coral bleaches, these rigs capture the evidence. If it thrives, they capture the proof. Either way: testimony that transcends any single season of television. This gives the "before it's gone" premise actual teeth and positions Season 2 around the retrieval.</p>
+      </div>
+      <div class="card">
+        <h4>The Trap: "No Visible Antagonist"</h4>
+        <p>"Climate change" and "time" are abstract enemies. The audience needs something concrete to root against in each episode.</p>
+        <h4 style="color:var(--aqua); margin-top:16px;">How We Solve It</h4>
+        <p>The antagonists emerge naturally from the voyage: the liveaboard tourist vessel racing for the same dive site (Episode 6), the illegal cyanide fishing operation (Episode 9), the monsoon that traps the crew in Banda Neira for three days (Episodes 3–4), the engine trouble threatening the Alotau deadline (Episode 10). The ocean itself is the ultimate antagonist — currents, weather, depth limits, the biological clock of the air supply at 73 meters. And the <strong>Alotau ticking clock</strong> gives the full season a hard deadline that the audience feels in their gut: November 1 or bust.</p>
+      </div>
+      <div class="card">
+        <h4>The Trap: "No Female Perspectives"</h4>
+        <p>The core crew as described is all-male — and while that may reflect reality, an all-male cast limits emotional range and audience reach.</p>
+        <h4 style="color:var(--aqua); margin-top:16px;">How We Solve It</h4>
+        <p><strong>Maya Crothers — Mike's wife — becomes a recurring presence via satellite call.</strong> She's the person waiting onshore, the relationship tested by distance, the voice that asks the questions Mike won't ask himself. These calls (one per episode, 2–3 minutes, captured by the bridge array) provide a grounding female perspective without forcing an artificial crew change. Kirstie is also a candidate for a guest episode. Even one strong female voice per episode broadens the show significantly.</p>
+      </div>
+    </div>
+
+    <h3>The Witness Statement</h3>
+    <div style="max-width:700px; margin-bottom:50px;">
+      <p>Every episode of <em>Unknown Seas</em> closes the same way: a <strong>witness statement</strong>.</p>
+      <p>A crew member — usually Mike, sometimes Michael, occasionally Yohanne or another — faces the camera directly. They state what they saw, where they saw it, and when. Coordinates. Date. Conditions. Species observed. Damage documented. It's formal. It's spare. It lasts 60–90 seconds.</p>
+      <p>This closing ritual borrows from two traditions simultaneously. The first is <strong>legal deposition</strong> — fitting, given Mike's backstory of courtroom injustice. Mike knows what it means to give testimony. He knows what it means when testimony is ignored. Now he's deposing the ocean. The second is the <strong>Sea Shepherd principle</strong>: the camera as the most powerful weapon in the world. Paul Watson said it from the bridge of the <em>Steve Irwin</em>. Mike says it from the bridge of <em>Iceberg</em>.</p>
+      <p>Across ten episodes, these witness statements accumulate into something larger than any individual episode. They become a body of evidence — a formal record that these places existed, in this state, on this date, witnessed by these people. If any of these reefs bleach, if any of these islands are developed, if any of these communities lose their traditions — the witness statements are the record that it was different once. That someone saw it. That someone said so, on camera, with coordinates.</p>
+      <p>This is what separates <em>Unknown Seas</em> from a travel show. Travel shows entertain. Witness statements testify.</p>
+    </div>
+
+    <h3>Underwater Time-Lapse: How It Works</h3>
+    <div class="grid-2" style="margin-bottom:50px;">
+      <div class="card">
+        <h4>The Rig</h4>
+        <p>A sealed pressure housing (rated to 30m) containing a modified GoPro or Brinno time-lapse camera, powered by an extended-life lithium battery pack and a 512GB microSD card. The housing is anchored to the reef substrate using marine-grade stainless steel bolts and a weighted base plate — designed to be non-invasive and removable. A small solar trickle-charger on the surface (connected by waterproof cable) extends battery life for deployments exceeding 3 months.</p>
+        <p>The camera captures one frame every 30 minutes — 48 frames per day, roughly 2 seconds of footage per day when compiled at 24fps. A 6-month deployment produces approximately 6 minutes of continuous time-lapse: day bleeding into night, night into day, tidal surges, seasonal shifts, storm events, and any biological change — coral growth, bleaching, algae bloom, or species migration — compressed into a visual record no human eye could otherwise perceive.</p>
+      </div>
+      <div class="card">
+        <h4>Why It Matters</h4>
+        <p>This is the <em>Chasing Coral</em> technique — but deployed at sites that have <strong>never been formally monitored</strong>. The time-lapse rigs at Banda Neira and Raja Ampat may capture the first visual record of seasonal reef change at these specific coordinates. That's not television. That's marine science.</p>
+        <p>Deployment is filmed as part of the episode (the crew bolting the rig to the reef becomes a scene). Retrieval — by a future expedition, a partner institution, or a Season 2 crew — is its own narrative event: what did the reef do when we left? The answer might be beautiful. It might be devastating. Either way, it's footage that didn't exist before <em>Unknown Seas</em> put it there.</p>
+        <p>Day-to-night transitions are the visual signature: the slow fade from turquoise to deep blue to black, punctuated by the glow of bioluminescence, then the return of light. Compressed into seconds, it looks like the reef is breathing.</p>
+      </div>
+    </div>
+
+    <h3>What Would Win Awards</h3>
+    <div class="grid-2" style="margin-bottom:30px;">
+      <div class="card">
+        <h4>The Pulitzer Instinct</h4>
+        <p>Investigation. Don't just observe environmental degradation — follow the money. Who profits from dynamite fishing in the Banda Sea? Who grants the permits? What happens to the coral that's illegally harvested and shipped to aquarium markets? Mike's own backstory is built on exposing institutional corruption in Wyoming. Turn that same lens on the ocean's enemies. One episode that pivots from beauty to accountability (Episode 9) gives the series journalistic credibility no pure nature show has.</p>
+      </div>
+      <div class="card">
+        <h4>The Oscar Eye</h4>
+        <p>A single, devastating emotional question held from first frame to last. The audience carries <em>"Can a broken man be healed by a dying ocean?"</em> for ten episodes. Each episode tightens it: the beauty of what he finds, the damage beneath the surface, the relationship with his son that mirrors the reef — fragile, threatened, but still alive. The finale answers the question without a word. If we execute this, the series transcends its genre. It's not a nature show. It's not a redemption story. It's both, and neither, and something new.</p>
+      </div>
+      <div class="card">
+        <h4>The Emmy Standard</h4>
+        <p>Complete dramatic arcs per episode. Every 25 minutes stands alone with its own beginning, middle, and end — its own bridge meeting problem, its own jeopardy, its own resolution or failure. <em>Whale Wars</em> understood this: each episode had a tactical mission with a success/failure binary. We've built that into every episode through the bridge meeting structure, but added emotional depth through the AI voice fragments and witness statements. The result: a show that satisfies both the binge-watcher and the week-to-week viewer.</p>
+      </div>
+      <div class="card">
+        <h4>What Would Be Unprecedented</h4>
+        <p>A documentary series that is simultaneously a personal redemption story, an environmental witness statement, and a contribution to marine science — captured with production techniques that didn't exist five years ago (AI voice reconstruction, bridge camera arrays, underwater time-lapse legacy rigs). The intersection of Mike's broken humanity and the ocean's fragile beauty, documented with tools that treat both with equal reverence. No show has attempted this combination. That's not a risk. That's a first-mover position.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ SOURCE MATERIAL ============ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">The Foundation</span>
+    <h2>From <em>Rigged</em> to <em>Unknown Seas</em></h2>
+    <div class="divider"></div>
+    <p class="lead" style="max-width:700px;"><em>Unknown Seas</em> takes the voyage and reimagines it as a forward-looking expedition series. Where the book looks backward at what happened, the show looks forward at what remains. Same boat. Same waters. New mission.</p>
+    <p style="max-width:700px;">The alternating perspectives — Mike's voice and Michael's voice — inform the show's dual video log format. The vivid descriptions of dive sites, island encounters, and crew dynamics provide a roadmap for the season's episode arcs. But the show isn't a retelling. It's the next chapter — the one that hasn't been written yet, because it hasn't happened yet.</p>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- Production Appendix Header -->
+<section style="padding:80px 0 40px; text-align:center; background:var(--deep);">
+  <div class="container">
+    <p style="font-family:var(--mono);font-size:10px;letter-spacing:6px;color:var(--steel);text-transform:uppercase;margin-bottom:12px;">Part Two</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:300;color:var(--white);margin-bottom:12px;">How We Make It</h2>
+    <p style="color:var(--steel);font-size:14px;">Production design, technology, and the tools behind the show.</p>
+    <img class="deck-img" src="https://i.ibb.co/YTqjcGfm/Screenshot-2026-03-22-at-18-13-02.png" alt="FPB 97 Iceberg — aerial top-down" loading="lazy" style="margin:40px auto 0; max-width:800px; border-radius:2px;">
+  </div>
+</section>
+
+<!-- ============ MOTION GRAPHICS ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">Visual Language</span>
+    <h2>Motion Graphics &amp; On-Screen Design</h2>
+    <div class="divider"></div>
+    <p class="lead" style="max-width:700px; margin-bottom:40px;">The viewer should always know where <em>Iceberg</em> is on the planet — and feel the remoteness. A custom motion graphics package turns navigation data into cinematic storytelling.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>Coordinate Tracking System</h4>
+        <p>A persistent, minimal HUD-style display shows <em>Iceberg</em>'s live latitude and longitude. As the vessel moves, coordinates tick over in real time — a subtle, ever-present reminder of just how far from civilization we are. During key moments, the display expands into a full-screen animated map: the vessel pulses as a single point of light on a dark ocean, surrounded by thousands of miles of nothing. Distance counters show: <em>"Nearest airport: 847 km. Nearest hospital: 1,102 km."</em></p>
+      </div>
+      <div class="card">
+        <h4>Depth &amp; Dive Telemetry</h4>
+        <p>During underwater sequences, elegant depth gauges, temperature readings, and air-supply indicators appear as translucent overlays. As Mike and Michael descend past recreational limits — 30m, 60m, 73m — the graphics shift color: blue to amber to red. These are not decorative — they create visceral tension. The audience knows when the dive is becoming dangerous before anyone says a word.</p>
+      </div>
+      <div class="card">
+        <h4>Location Intelligence Cards</h4>
+        <p>Each new location triggers a brief, beautifully typeset data card: historical context, biodiversity statistics, conservation status, last known survey date. These are researched and substantiated facts, not filler — designed to make the audience feel the weight of discovery. Example: <em>"Banda Neira — Accessible only between monsoon seasons. Portuguese arrival: 1512. Last foreign archaeological survey: 2019. Marine species documented: 340+. Protected status: Limited."</em></p>
+      </div>
+      <div class="card">
+        <h4>Video Log Interface</h4>
+        <p>Mike's and Michael's video logs are presented with a distinctive on-screen frame: a thin border, timestamp, and a simple identifier — <em>"Mike's Video Log · Day 23 · 04:47 AM"</em> — in monospaced type. This creates a documentary-within-a-documentary texture, distinguishing personal reflection from the observational footage.</p>
+      </div>
+    </div>
+
+    <!-- ALOTAU CLOCK VISUALIZATION -->
+    <div style="margin-top:60px;">
+      <h3>The Alotau Clock</h3>
+      <p style="max-width:700px; margin-bottom:30px;">The single most important motion graphic in the series. A persistent countdown — elegant, minimal, ever-present — tracking the days, hours, and nautical miles remaining until the Kenu &amp; Kundu Festival on November 1. It appears at the start and end of every episode, and at every bridge meeting. As the season progresses, the numbers tighten. The audience feels the pressure without anyone saying a word.</p>
+
+      <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(61,139,139,0.3); border-radius:2px; padding:50px 40px; text-align:center; margin-bottom:30px; position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 50%, rgba(61,139,139,0.06) 0%, transparent 70%);pointer-events:none;"></div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:4px;color:var(--aqua);text-transform:uppercase;margin-bottom:20px;opacity:0.7;">Destination: Alotau, Milne Bay, Papua New Guinea</div>
+        <div style="font-family:var(--mono);font-size:clamp(32px,6vw,64px);color:var(--white);letter-spacing:4px;margin-bottom:8px;font-weight:300;" class="clock-pulse">
+          28<span style="color:var(--aqua);font-size:0.5em;vertical-align:middle;"> D </span>
+          14<span style="color:var(--aqua);font-size:0.5em;vertical-align:middle;"> H </span>
+          37<span style="color:var(--aqua);font-size:0.5em;vertical-align:middle;"> M </span>
+        </div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--steel);letter-spacing:2px;margin-bottom:24px;">1,847 NM REMAINING &nbsp;·&nbsp; 10°18'S 150°28'E</div>
+        <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--steel);letter-spacing:2px;margin-bottom:4px;">CURRENT POSITION</div>
+            <div style="font-family:var(--mono);font-size:13px;color:var(--sand);">00°14'S 130°31'E</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--steel);letter-spacing:2px;margin-bottom:4px;">FUEL RESERVE</div>
+            <div style="font-family:var(--mono);font-size:13px;color:var(--sand);">68%</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--steel);letter-spacing:2px;margin-bottom:4px;">WEATHER WINDOW</div>
+            <div style="font-family:var(--mono);font-size:13px;color:var(--coral);">NARROWING</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--steel);letter-spacing:2px;margin-bottom:4px;">FESTIVAL DATE</div>
+            <div style="font-family:var(--mono);font-size:13px;color:var(--sand);">NOV 01, 2026</div>
+          </div>
+        </div>
+      </div>
+      <p class="subtle">The clock adapts per episode. In early episodes, the numbers are comfortable — 42 days, plenty of buffer. By episode 7, the margin is thin. By episode 9, it's critical. In the finale, it hits zero. The visual progression across the season tells a story of tightening pressure that the audience absorbs even subconsciously.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ AI VOICE NARRATION ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">An Idea Worth Exploring</span>
+    <h2>AI Voice Narration</h2>
+    <div class="divider"></div>
+    <p class="lead" style="max-width:700px; margin-bottom:40px;">Here's a technique that could be interesting to try. The most powerful moments of this journey are often interior — the thoughts that happen between the action, the reflections that are hard to say out loud to a camera. What if there were a way to layer that inner voice over the footage without needing to perform it?</p>
+
+    <div class="grid-2">
+      <div>
+        <h4>The Concept</h4>
+        <p>A recorded session — just natural conversation, storytelling, reading passages — is used to create a high-fidelity AI voice model (tools like ElevenLabs or Respeecher). The model captures the grain, rhythm, and emotional texture of the voice. In post-production, any scripted narration can be generated in that voice — indistinguishable from the real thing.</p>
+        <p>This isn't a replacement for on-camera video logs. It's a companion layer — a way to add depth and interiority to footage that might otherwise be silent or under-explained. Think of it as having your own voice available as a storytelling tool, without needing to be in a recording booth every time an episode needs a narrative bridge.</p>
+      </div>
+      <div>
+        <h4>What It Could Unlock</h4>
+        <p><strong>Interior narration over underwater footage.</strong> While we watch a descent past 200 feet, we hear the diver's thoughts — not performed to camera after the fact, but generated from words that capture what was actually felt in the moment.</p>
+        <p><strong>Backstory without flashbacks.</strong> The context of why this journey matters — the personal history, the motivations — can be woven into episodes as quiet narrated fragments over ocean footage. No courtroom reenactments. No dramatic recreations. Just a voice telling its own story over the water.</p>
+        <p><strong>Total editorial flexibility.</strong> If an episode needs a bridge between scenes, or a key emotional beat is missing from the footage, narration can be generated in hours. This eliminates the biggest bottleneck in unscripted post-production: getting VO pickups from someone on a boat in the middle of the Indonesian archipelago.</p>
+        <p>All AI-generated narration would be fully transparent and credited. The voices are yours — the AI is just a reproduction tool, not a fabrication. Worth exploring as a creative option alongside traditional video logs and on-camera moments.</p>
+      </div>
+    </div>
+
+    <div class="quote" style="margin-top:40px;">
+      Imagine: a voice layered over twilight-zone dive footage at 73 meters in Raja Ampat — while the depth gauge on screen ticks past the red line. No camera crew needed. No performance. Just truth, reconstructed.
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ THE VESSEL ============ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">The Vessel</span>
+    <h2>FPB 97 <em>Iceberg</em></h2>
+    <div class="divider"></div>
+
+    <div class="video-embed" style="border-radius:2px; overflow:hidden; margin-bottom:40px;">
+      <iframe src="https://player.vimeo.com/video/1176027432?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Iceberg Drone"></iframe>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <p class="lead">The largest and fastest of the Functional Power Boats ever built. Designed by Dashew Offshore, constructed by Circa Marine in New Zealand in 2015, the FPB 97 <em>Iceberg</em> is not a luxury yacht — she is an expedition vessel engineered for the most remote waters on Earth.</p>
+        <p><em>Iceberg</em> is both character and setting: the bridge where the crew plans each day's expedition, the deck where unscripted moments unfold, and the floating basecamp from which every dive, every discovery, every conversation begins.</p>
+      </div>
+      <div>
+        <h4>Vessel Specifications</h4>
+        <p><strong>Class:</strong> FPB 97 — Functional Power Boat<br>
+        <strong>Builder:</strong> Circa Marine, New Zealand (2015)<br>
+        <strong>Designer:</strong> Dashew Offshore<br>
+        <strong>Cruising Speed:</strong> 12+ knots<br>
+        <strong>Surf Speed:</strong> 20+ knots<br>
+        <strong>Handled by:</strong> Small expedition team<br>
+        <strong>Capability:</strong> Bluewater, all-ocean, capsize-recovery</p>
+        <h4 style="margin-top:24px;">Sea Shepherd Inspiration</h4>
+        <p><em>Iceberg</em> takes operational cues from the MY <em>Steve Irwin</em> — the legendary Sea Shepherd Conservation Society flagship that starred in <em>Whale Wars</em> on Animal Planet. Like the <em>Steve Irwin</em>, <em>Iceberg</em> is painted in expedition black, operates with a small volunteer-spirit crew, and serves as both home and mission platform. But where Sea Shepherd's vessel was built for confrontation, <em>Iceberg</em> is built for documentation — the camera as the primary weapon, recording what exists before it doesn't.</p>
+        <p class="subtle">Reference: <a href="https://www.youtube.com/watch?v=MNTbx-T6s8s" target="_blank">FPB 97 Iceberg — Overview</a> · <a href="https://www.youtube.com/watch?v=w-s1q2e_EFs" target="_blank">Iceberg Walkthrough</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ CAMERA ARRAY ============ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Production Innovation</span>
+    <h2>The Bridge Camera Array</h2>
+    <div class="divider"></div>
+    <p class="lead" style="max-width:700px; margin-bottom:40px;">Unscripted moments are the soul of this show. The problem: a traditional camera crew changes behavior. The solution: a multi-camera array that captures everything with the press of a single button.</p>
+
+    <div class="grid-2">
+      <div>
+        <h4>The Concept</h4>
+        <p>A network of 6–10 compact cinema cameras permanently mounted at key positions throughout <em>Iceberg</em>: the bridge (3 angles covering the chart table, helm, and panoramic view), the aft deck (2 wide angles), and the dive preparation area (1–2 cameras). All cameras are wired to a central recording system controlled by a single hardware trigger — a prominent, easy-to-reach button that Yohanne (or any crew member) can hit to activate all cameras simultaneously.</p>
+        <p>When something happens — a whale breaches, an argument erupts on the bridge, Mike sees something on the sonar — someone hits the button. All cameras roll. The moment is captured from every angle in broadcast quality, with no setup time, no crew repositioning, no interruption to the natural flow of life aboard.</p>
+      </div>
+      <div>
+        <h4>Technical Implementation</h4>
+        <p><strong>Cameras:</strong> Sony Alpha 7C II or Blackmagic Pocket Cinema 6K — compact bodies, excellent low-light, cinema-grade codec. Fixed with wide prime lenses (16–24mm) for maximum coverage.</p>
+        <p><strong>Mounts:</strong> Custom marine-grade gimbal brackets with vibration dampening. RAM or SmallRig modular systems adapted for marine environment. Protective housings for salt spray.</p>
+        <p><strong>Trigger System:</strong> Blackmagic ATEM-based or custom Arduino/Raspberry Pi controller sending simultaneous record commands via SDI or HDMI. Physical "big red button" at helm and aft deck positions.</p>
+        <p><strong>Recording:</strong> Central NVR (Network Video Recorder) with redundant SSD storage. Each camera also records locally as backup. Continuous loop recording (last 60 seconds always buffered) ensures you never miss the moment before the button is pressed.</p>
+        <p><strong>Audio:</strong> Ambient microphones (Sennheiser MKE 600 or DPA 4017) at bridge and deck positions capture conversation without lavaliers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ UNDERWATER FILMING ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">Underwater Innovation</span>
+    <h2>New Techniques for the Deep</h2>
+    <div class="divider"></div>
+    <p class="lead" style="max-width:700px; margin-bottom:40px;">Mike and Michael dive past 240 feet. Traditional underwater cinematography doesn't work at these depths. We combine proven deep-water methods with emerging technologies.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h4>360° Immersive Capture</h4>
+        <p>The Insta360 X5 in a rated dive housing (60m+) captures full spherical video that can be reframed in post. One camera, infinite angles. The AquaVision 2.0 color-correction engine restores true color lost at depth — reds vanish below 15 meters, but the AI rebuild is remarkably accurate. This gives the editor total creative freedom to find the shot after the dive.</p>
+      </div>
+      <div class="card">
+        <h4>Underwater ROV for Extreme Depth</h4>
+        <p>Below recreational limits, a tethered ROV (such as the Chasing M2 Pro or BlueROV2) carries a 4K camera to depths exceeding 100 meters. Piloted from <em>Iceberg</em>'s bridge, the ROV can explore caves, vertical walls, and deep reef systems too dangerous for human divers. Live-feed to the bridge creates another layer of the Bridge Meeting: the crew watching the deep in real time.</p>
+      </div>
+      <div class="card">
+        <h4>Low-Light &amp; Lighting Innovation</h4>
+        <p>At depth, you lose light channels progressively — red first, then orange, then yellow. Compact underwater LED panels with high CRI (Color Rendering Index) restore natural color in-camera. New durable LED panels rated to 6 meters (2 bar pressure) are emerging in 2026. Combined with cameras shooting in 12-bit RAW or ProRes, the color grading pipeline can restore broadcast-quality imagery from even the twilight zone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ DRONE & TECH ============ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Equipment</span>
+    <h2>Technology Package</h2>
+    <p class="lead" style="margin-bottom:40px;">Nimble. Not clunky. Every piece of gear must survive salt, humidity, and the chaos of a working vessel. Three tiers from scrappy to cinema.</p>
+    <div class="divider"></div>
+
+    <div class="tech-tier tier-essential">
+      <div class="tech-tier-label">Tier 1 — Essential (Budget: ~$15K)</div>
+      <p><strong>Drone:</strong> DJI Mini 4 Pro ($760) — ultra-compact, 4K, hand-launchable from deck. 34-min flight time, ActiveTrack follow-me, controller-based RTH for moving vessels. Lightweight enough for one-handed catch on a rocking boat.</p>
+      <p><strong>Primary Camera:</strong> Sony Alpha 7C II ($2,200) — compact full-frame, excellent low-light, 4K 60fps. Pairs with a Tamron 17-28mm f/2.8 for run-and-gun.</p>
+      <p><strong>Underwater:</strong> Insta360 X5 + dive case ($800) — 360° to 60m depth. AquaVision color correction in-app. The most versatile underwater capture tool per dollar.</p>
+      <p><strong>Bridge Cameras:</strong> 4x GoPro Hero 13 Black ($400 each) mounted at fixed positions. Simultaneous trigger via GoPro Labs / GoPro Remote.</p>
+      <p><strong>Audio:</strong> Rode Wireless GO II lavalier kit + Rode VideoMic NTG for ambient.</p>
+    </div>
+
+    <div class="tech-tier tier-pro">
+      <div class="tech-tier-label">Tier 2 — Professional (Budget: ~$50K)</div>
+      <p><strong>Drone:</strong> DJI Mavic 3 Pro ($2,200) — triple-camera system (Hasselblad 24mm / 70mm tele / 166mm tele). 43-min flight, 27 mph wind resistance. The standard for professional maritime aerial. Controller-based home point for moving vessels.</p>
+      <p><strong>Waterproof Drone:</strong> SwellPro SplashDrone 4 ($2,500) — fully waterproof, saltwater-resistant, water-landable. 4K stabilized camera. The only drone you can safely crash into the ocean and recover.</p>
+      <p><strong>Primary Camera:</strong> Sony FX6 ($6,000) — cinema-line full-frame, dual-base ISO, internal 4K 120fps, 12-bit RAW output. Built for documentary.</p>
+      <p><strong>Underwater:</strong> Sony FX6 in Nauticam housing ($8,000 housing) + Keldan underwater LED lights. Plus Insta360 X5 as B-camera for immersive coverage.</p>
+      <p><strong>ROV:</strong> Chasing M2 Pro ($3,500) — rated to 150m, 4K camera, tethered control from bridge.</p>
+      <p><strong>Bridge Array:</strong> 6x Blackmagic Pocket Cinema 4K ($1,300 each) + ATEM Mini Extreme for simultaneous trigger and switching. Continuous loop recording.</p>
+    </div>
+
+    <div class="tech-tier tier-cinema">
+      <div class="tech-tier-label">Tier 3 — Cinema Grade (Budget: ~$150K+)</div>
+      <p><strong>Drone:</strong> DJI Inspire 3 ($16,500) — dual-operator, 8K full-frame sensor, CinemaDNG/ProRes RAW. The industry standard for broadcast aerial cinematography. Plus Mavic 3 Pro as scout/B-roll drone and SplashDrone 4 for water operations.</p>
+      <p><strong>Primary Camera:</strong> ARRI ALEXA Mini LF or RED V-RAPTOR — cinema gold standard. Multiple lens sets: Master Primes for controlled scenes, compact Sigma Cine for handheld.</p>
+      <p><strong>Underwater:</strong> Custom Nauticam housing for ALEXA Mini + Kessler underwater sliders. Keldan 8X CRI-97 LED panels. Blue Robotics BlueROV2 Heavy ($10,000) for deep exploration with integrated 4K and sonar.</p>
+      <p><strong>Bridge Array:</strong> 10x Sony Alpha 7C II in Atomos Ninja-connected network. Custom Raspberry Pi trigger controller with pre-roll buffer. Dedicated recording station with 40TB NAS + LTO tape backup.</p>
+      <p><strong>Audio:</strong> DPA 4017 shotgun + Lectrosonics Digital Wireless + Ambient Sound field recorder for immersive 5.1 capture.</p>
+      <p><strong>Post Infrastructure:</strong> DaVinci Resolve Studio on-vessel for dailies. Starlink for cloud backup of selects. Portable RAID array for cold storage.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- ============ PRODUCTION TEAM ============ -->
+<section class="section" style="background: var(--ocean);">
+  <div class="container">
+    <span class="section-label">Production References</span>
+    <h2>Filmmaker Network</h2>
+    <p class="lead" style="margin-bottom:40px;">In addition to Yohanne Delhote as the expedition's embedded videographer, the following filmmakers represent the production talent pool for post-production, additional cinematography, and series-level editorial.</p>
+    <div class="divider"></div>
+
+    <div class="grid-2">
+      <div class="char-card">
+        <div class="char-name">Cédric Luciani</div>
+        <div class="char-role">Kolor Media</div>
+        <p>Cinematographer and colorist with an eye for high-end grading and visual storytelling. Potential role: post-production color pipeline, ensuring the underwater footage achieves a consistent, cinematic look across all episodes.</p>
+        <p class="subtle"><a href="https://www.kolor-media.com/" target="_blank">kolor-media.com</a> · cedric.conseil91@gmail.com</p>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Thibaut Tattevin</div>
+        <div class="char-role">Nerod Production</div>
+        <p>Independent producer and filmmaker. Potential role: series producer or post-production supervisor, bringing structure and editorial rigor to the raw expedition footage.</p>
+        <p class="subtle"><a href="https://nerodproduction.com/" target="_blank">nerodproduction.com</a> · nerodproduction@gmail.com</p>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Ben Grivoz</div>
+        <div class="char-role">Everywhere Films &amp; Productions</div>
+        <p>Adventure and travel filmmaker with a portfolio of expedition-style content. Potential role: additional DP for shore excursions, cultural encounters, and B-unit coverage when the crew splits across locations.</p>
+        <p class="subtle"><a href="https://www.instagram.com/bengrivoz/" target="_blank">@bengrivoz</a> · <a href="https://www.youtube.com/@EVERYWHEREFILMSANDPRODUCTIONS" target="_blank">YouTube</a> · everywhereprod@gmail.com</p>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Yohanne Delhote</div>
+        <div class="char-role">Expedition Videographer</div>
+        <p>The camera eye aboard <em>Iceberg</em>. Yohanne lives with the crew, shoots with the crew, and becomes one of the crew. His early work shows a raw, kinetic style that thrives in uncontrolled environments — exactly what this show needs.</p>
+        <p class="subtle"><a href="https://www.youtube.com/@Yohann.Delhote" target="_blank">youtube.com/@Yohann.Delhote</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wide"></div>
+
+<!-- Moody transition image -->
+<section style="padding:0; background:var(--deep);">
+  <div style="max-width:1100px; margin:0 auto; padding:40px 40px;">
+    <img class="deck-img" src="https://i.ibb.co/My921SCb/Screenshot-2026-03-22-at-18-11-15.png" alt="FPB 97 Iceberg — open water" loading="lazy" style="margin:0; border-radius:2px;">
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="section" style="background: radial-gradient(ellipse at 50% 80%, #0d2137 0%, #0a0c10 70%); min-height: 80vh; display: flex; align-items: center;">
+  <div class="container" style="text-align: center;">
+    <div class="coord-display" style="margin-bottom:40px; opacity:0.5;">
+      SIGNAL ORIGIN: 10°18'S &nbsp; 150°28'E &nbsp;·&nbsp; ALOTAU CLOCK: 00:00:00
+    </div>
+    <p style="font-family:var(--serif); font-size:clamp(22px,3vw,30px); font-weight:300; font-style:italic; color:var(--sand); max-width:600px; margin:0 auto 40px; line-height:1.5;">Can a broken man be healed by a dying ocean?</p>
+    <h2 style="font-size: clamp(36px, 6vw, 72px); max-width: 800px; margin: 0 auto 30px;">The world won't wait.<br>The cameras are rolling.</h2>
+    <p class="lead" style="max-width:500px; margin: 0 auto 40px; font-style: italic; color:var(--coral);">Unknown seas. Before it's gone.</p>
+    <div class="divider" style="margin: 40px auto;"></div>
+    <p class="subtle">
+      <em>Unknown Seas</em> — A Documentary Series · 10 Episodes · 25 Minutes<br>
+      © 2026 All Rights Reserved
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>UNKNOWN SEAS &nbsp;·&nbsp; PITCH DECK &nbsp;·&nbsp; 2026</p>
+</footer>
+
+<script>
+// Scroll-triggered reveal animations
+document.addEventListener('DOMContentLoaded', () => {
+  // Auto-apply reveal class to animatable elements
+  const selectors = [
+    '.section-label', 'h2', 'h3', '.divider', '.lead', '.quote',
+    '.card', '.char-card', '.ep-block', '.tech-tier',
+    '.grid-2', '.grid-3'
+  ];
+
+  // Only animate elements inside .section (not hero)
+  document.querySelectorAll('.section').forEach(section => {
+    selectors.forEach(sel => {
+      section.querySelectorAll(sel).forEach((el, i) => {
+        if (!el.closest('.hero')) {
+          el.classList.add('reveal');
+          // Stagger cards within grids
+          if (el.matches('.card, .char-card')) {
+            el.classList.add(`reveal-delay-${Math.min(i % 4 + 1, 4)}`);
+          }
+        }
+      });
+    });
+  });
+
+  // Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
+</script>
+
+<!--
+===============================================
+MEDIA INTEGRATION GUIDE
+===============================================
+
+TO ADD AN IMAGE (hosted externally):
+<img class="deck-img" src="https://your-url.com/image.jpg" alt="Description" loading="lazy">
+
+TO ADD A VIMEO VIDEO:
+<div class="video-embed">
+  <iframe src="https://player.vimeo.com/video/VIDEO_ID?background=0&title=0&byline=0&portrait=0" allowfullscreen></iframe>
+</div>
+
+TO ADD A YOUTUBE VIDEO:
+<div class="video-embed">
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" allowfullscreen></iframe>
+</div>
+
+PLACEHOLDER (shows dashed box until replaced):
+<div class="media-slot">
+  <p>Image or video goes here</p>
+</div>
+
+IMAGE HOSTING OPTIONS (to keep HTML lightweight):
+1. GitHub repo: upload images to /images/ folder, reference as relative paths
+2. Cloudinary (free tier): auto-optimizes, serves WebP, CDN-backed
+3. imgbb.com: free, fast, no account needed for quick tests
+4. Vimeo: for all video (supports privacy settings, no ads)
+
+NEVER embed base64 images in this file.
+===============================================
+-->
+
+</body>
+</html>
